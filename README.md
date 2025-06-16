@@ -8,9 +8,9 @@ This project demonstrates a Python-based **microservices architecture** managed 
 
 ```
 book-catalog/
-├── django_user_service/          # User Auth via Django
-├── flask_book_service/           # Book CRUD via Flask
-├── fastapi_recommendation_service/ # Recommendations via FastAPI
+├── user_service/          # User Auth via Django
+├── book_service/           # Book CRUD via Flask
+├── recommendation_service/ # Recommendations via FastAPI
 ├── docker-compose.yml            # Docker orchestration
 └── .github/workflows/devops.yml  # CI Workflow
 ```
@@ -70,15 +70,15 @@ docker-compose up
 ### Manual Test Execution:
 ```bash
 # Django
-cd django_user_service
+cd user_service
 python manage.py test
 
 # Flask
-cd flask_book_service
+cd book_service
 pytest
 
 # FastAPI
-cd fastapi_recommendation_service
+cd recommendation_service
 pytest
 ```
 
