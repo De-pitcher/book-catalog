@@ -1,0 +1,44 @@
+# Byte-compiled / cached
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+env/
+.venv/
+ENV/
+*.env
+*.venv
+.Python
+
+# VS Code / IDE settings
+.vscode/
+.idea/
+
+# Docker
+*.log
+*.pid
+*.sock
+*.db
+*.sqlite3
+docker-compose.override.yml
+
+# Pytest
+.cache/
+.coverage
+htmlcov/
+
+# macOS
+.DS_Store
+
+# Node (if frontend added later)
+node_modules/
+
+# GitHub Actions
+.github/*.log
+
+# System
+Thumbs.db
+
+# Personal
+requirements.txt

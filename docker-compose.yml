@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  django_user:
+    build: ./user_service
+    ports:
+      - "8000:8000"
+  flask_books:
+    build: ./book_service
+    ports:
+      - "5000:5000"
+  fastapi_recommend:
+    build: ./recommendation_service
+    ports:
+      - "8001:8001"

@@ -1,0 +1,7 @@
+# Django stuff:
+*.sqlite3
+*.log
+media/
+staticfiles/
+local_settings.py
+db.sqlite3
