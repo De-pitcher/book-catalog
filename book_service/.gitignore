@@ -1,0 +1,5 @@
+# General Python/Flask/FastAPI
+*.pyc
+instance/
+.env
+*.log

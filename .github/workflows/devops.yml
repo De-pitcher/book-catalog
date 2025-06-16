@@ -1,0 +1,44 @@
+name: DevOps CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.24.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          docker-compose version
+
+      - name: Build all containers
+        run: docker-compose build
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install test deps
+        run: pip install pytest requests flake8
+
+      - name: Run Django Tests
+        working-directory: user_service
+        run: |
+          pip install -r requirements.txt
+          python manage.py test
+
+      - name: Run Flask Tests
+        working-directory: book_service
+        run: pytest tests/test_books.py
+
+      - name: Run FastAPI Tests
+        working-directory: recommendation_service
+        run: pytest tests/test_recommend.py
